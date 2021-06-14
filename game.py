@@ -33,14 +33,16 @@ def start_game():
     the_word = list(word_to_find)
 
     # turn count/ error count
-
+    
+    # COACHES' NOTE: why is this not a function? 
     # for the length of the word to find we print _ to show how many letters
     guessed_word = []
     for i in range(len(word_to_find)):
         guessed_word.append("_")
     print(*([i for i in guessed_word]))
     print(word_to_find)
-
+    
+    # COACHES' NOTE: why is this not a function?
     lives = 5
     while lives:
         error_count = len(wrongly_guessed_letters)+1
@@ -58,7 +60,8 @@ def start_game():
         elif guessed_letter in wrongly_guessed_letters:
             print("Trying a letter again won't work. Pick another one")
             # check if guessed_letter is matches with word_to_find
-
+        
+        # COACHES' NOTE: why is this not a function?
         if guessed_letter in word_to_find:
             for i in range(len(word_to_find)):
                 if word_to_find[i] == guessed_letter:
@@ -74,8 +77,10 @@ def start_game():
 
         guess_word = [i for i in guessed_word]
         guess_word = "".join(guess_word)
-
+        
+        # COACHES' NOTE: why is this not a function?
         if word_to_find == guess_word:
+            # COACHES' NOTE: thanks for the coo(c)kie ;)
             print("Good boy. Here is a coockie!")
             exit(0)
         print(f"You have {lives} lives left")
@@ -87,3 +92,5 @@ def start_game():
 
 if __name__ == '__main__':
     main()
+
+# COACHES' NOTE: It works, but the implementation is sloppy. Use functions to structure your code. Start out from a object POV instead of a line-by-line POV. Who are my actors? What can they do? What properties do they have? Every single thing can be an attribute of this class, no matter how small.
